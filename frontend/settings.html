@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings - Cafe Token Management System</title>
+  <link rel="icon" type="image/png" href="assets/q-logo.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Full-Screen Restriction Overlay for Screens < 1024px -->
+  <div id="screen-warning-overlay">
+    <div class="screen-warning-card">
+      <div class="screen-warning-icon">
+        <svg class="icon-svg icon-svg-xl" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h2>Screen Size Not Supported</h2>
+      <p>This application is designed for larger screens. Please open Cafe Token Management System on a laptop or desktop with a screen width of at least 1024 pixels.</p>
+    </div>
+  </div>
+
+  <!-- Sidebar Navigation -->
+  <aside class="sidebar">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Cafe Logo" class="brand-logo-img" 
+           onload="this.style.display='block'; document.getElementById('brand-fallback').style.display='none';"
+           onerror="this.style.display='none'; document.getElementById('brand-fallback').style.display='flex';">
+      <div id="brand-fallback" class="brand-fallback">
+        <div class="brand-icon-box">
+          <svg class="icon-svg icon-svg-md" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+        </div>
+        <div class="brand-info">
+          <h1>Cafe Manager</h1>
+          <p>Token System</p>
+        </div>
+      </div>
+    </div>
+    <ul class="nav-menu">
+      <li>
+        <a href="index.html">
+          <svg class="icon-svg" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="cashier.html">
+          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+          Cashier
+        </a>
+      </li>
+      <li>
+        <a href="kitchen.html">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M12 2v8"/><path d="M4.93 10.93a10 10 0 1 0 14.14 0"/><path d="M2 12h20"/></svg>
+          Kitchen
+        </a>
+      </li>
+      <li>
+        <a href="history.html">
+          <svg class="icon-svg" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          Order History
+        </a>
+      </li>
+      <li>
+        <a href="display.html" target="_blank">
+          <svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="15" rx="2" ry="2"/><polyline points="17 2 12 7 7 2"/></svg>
+          TV Display
+        </a>
+      </li>
+      <li>
+        <a href="settings.html" class="active">
+          <svg class="icon-svg" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+          Settings
+        </a>
+      </li>
+    </ul>
+    <div class="sidebar-footer">
+      <div class="server-status">
+        <span class="status-dot" id="server-status-dot"></span>
+        <span id="server-status-text">Connecting...</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+    <header class="topbar">
+      <div class="page-title">
+        <h2>System Settings</h2>
+      </div>
+      <div class="topbar-actions">
+        <button class="btn btn-secondary btn-sm" onclick="saveAllSettings()" id="btn-save-settings">
+          <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Changes
+        </button>
+        <button id="btn-fullscreen" class="btn btn-secondary btn-sm btn-icon" onclick="toggleFullScreen()" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">
+          <svg class="icon-svg icon-svg-sm" id="icon-fullscreen-enter" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+          <svg class="icon-svg icon-svg-sm" id="icon-fullscreen-exit" viewBox="0 0 24 24" style="display:none;"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
+        </button>
+      </div>
+    </header>
+
+    <div class="content-container">
+      <div class="settings-container">
+        <!-- Navigation Tabs -->
+        <nav class="settings-nav-tabs">
+          <button class="settings-tab-btn active" data-tab="general">
+            <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            General
+          </button>
+          <button class="settings-tab-btn" data-tab="orders">
+            <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            Orders &amp; Queue
+          </button>
+          <button class="settings-tab-btn" data-tab="display">
+            <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            TV Display
+          </button>
+          <button class="settings-tab-btn" data-tab="revenue">
+            <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            Revenue &amp; Sales
+          </button>
+          <button class="settings-tab-btn" data-tab="devices">
+            <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+            Device Management
+          </button>
+        </nav>
+
+        <!-- ===================================================================
+             1. GENERAL SETTINGS PANEL
+             =================================================================== -->
+        <div class="settings-panel active" id="panel-general">
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3>Cafeteria Branding &amp; Format</h3>
+              <p>Configure cafe identification and regional currency preferences.</p>
+            </div>
+            <div class="settings-form-grid">
+              <div class="settings-row" style="grid-column: 1 / -1;">
+                <label for="setting-cafe-name">Cafeteria / Business Name</label>
+                <input type="text" id="setting-cafe-name" class="input" placeholder="Campus Cafeteria">
+                <span class="settings-row-desc">Displayed on receipts, headers, and the TV status board.</span>
+              </div>
+              <div class="settings-row">
+                <label for="setting-currency-symbol">Currency Symbol</label>
+                <input type="text" id="setting-currency-symbol" class="input" placeholder="₹">
+                <span class="settings-row-desc">Symbol prefixed to item prices and billing totals.</span>
+              </div>
+              <div class="settings-row">
+                <label for="setting-time-format">Time Display Format</label>
+                <select id="setting-time-format" class="input">
+                  <option value="12h">12-Hour (e.g. 02:45 PM)</option>
+                  <option value="24h">24-Hour (e.g. 14:45)</option>
+                </select>
+                <span class="settings-row-desc">Controls timestamps across orders and dashboard clocks.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3>Token Numbering System</h3>
+              <p>Dynamic token prefixes, numbering sequence rules, and live token generation preview.</p>
+            </div>
+            <div class="settings-form-grid">
+              <div class="settings-row" style="grid-column: 1 / -1;">
+                <label for="setting-token-format">Token Sequence Style</label>
+                <select id="setting-token-format" class="input" onchange="refreshTokenPreview()">
+                  <option value="from_101">Start from 101 (e.g. 101, 102, 103...)</option>
+                  <option value="three_digit">3-Digit Zero Padded (e.g. 001, 002, 003...)</option>
+                  <option value="sequential">Sequential (e.g. 1, 2, 3...)</option>
+                  <option value="custom">Custom Prefix Only</option>
+                </select>
+                <span class="settings-row-desc">Format applied to newly generated token numbers.</span>
+              </div>
+
+              <div class="settings-row">
+                <label for="setting-token-prefix-normal">Normal Order Prefix</label>
+                <input type="text" id="setting-token-prefix-normal" class="input" placeholder="N-" oninput="refreshTokenPreview()">
+                <span class="settings-row-desc">Prefix for standard FIFO queue orders.</span>
+              </div>
+
+              <div class="settings-row">
+                <label for="setting-token-prefix-priority">Priority Order Prefix</label>
+                <input type="text" id="setting-token-prefix-priority" class="input" placeholder="P-" oninput="refreshTokenPreview()">
+                <span class="settings-row-desc">Prefix for VIP/faculty priority heap orders.</span>
+              </div>
+            </div>
+
+            <div class="token-preview-banner">
+              <div>
+                <span style="font-size: 12px; font-weight: 600; color: var(--text-heading);">Live Next Token Preview:</span>
+                <span style="font-size: 11px; color: var(--text-muted); margin-left: 6px;">Next tokens generated with current settings</span>
+              </div>
+              <div style="display: flex; gap: 12px;">
+                <span class="token-preview-pill" id="preview-normal-token">Normal: --</span>
+                <span class="token-preview-pill" id="preview-priority-token" style="border-color: #f59e0b; color: #92400e; background: #fef3c7;">Priority: --</span>
+              </div>
+            </div>
+
+            <div style="margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--border-light); display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h4 style="font-size: 13px; font-weight: 700;">Reset Token Counters</h4>
+                <p style="font-size: 11px; color: var(--text-muted); margin-top: 2px;">
+                  Safely reset the next starting sequence number for a new day. Existing active orders will not collide.
+                </p>
+              </div>
+              <button type="button" class="btn btn-secondary" onclick="openResetTokenModal()">
+                <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><path d="M23 4v6h-6"/><path d="M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+                Reset Sequence
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             2. ORDER & QUEUE SETTINGS PANEL
+             =================================================================== -->
+        <div class="settings-panel" id="panel-orders">
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3>Order Execution &amp; Queue Behavior</h3>
+              <p>Configure queue priorities, cancellation permissions, and initial order status.</p>
+            </div>
+
+            <div class="toggle-switch-wrapper">
+              <div>
+                <label style="font-size: 13px; font-weight: 600; color: var(--text-heading);">Enable Priority Orders (Heap-Accelerated)</label>
+                <div class="settings-row-desc">Allow Cashiers to create VIP / Express orders that jump to the front of preparation via C++ Priority Queue (Binary Heap).</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-enable-priority-orders">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-switch-wrapper">
+              <div>
+                <label style="font-size: 13px; font-weight: 600; color: var(--text-heading);">Allow Order Cancellations</label>
+                <div class="settings-row-desc">Permit Cashiers to void or remove waiting orders from the active queue.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-enable-cancellations">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="settings-row" style="margin-top: 18px;">
+              <label for="setting-default-order-status">Default Order Status on Placement</label>
+              <select id="setting-default-order-status" class="input" style="max-width: 320px;">
+                <option value="WAITING">WAITING (Order enters FIFO queue)</option>
+                <option value="PREPARING">PREPARING (Order starts immediately in kitchen)</option>
+              </select>
+              <span class="settings-row-desc">Initial state assigned when order is submitted at the Cashier POS.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             3. TV DISPLAY SETTINGS PANEL
+             =================================================================== -->
+        <div class="settings-panel" id="panel-display">
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3>Customer-Facing TV Status Board</h3>
+              <p>Customize the light-mode TV display board seen by customers.</p>
+            </div>
+
+            <div class="settings-form-grid" style="margin-bottom: 20px;">
+              <div class="settings-row">
+                <label for="setting-tv-business-name">TV Screen Header Title</label>
+                <input type="text" id="setting-tv-business-name" class="input" placeholder="Campus Cafeteria">
+                <span class="settings-row-desc">Business name shown prominently on the top bar of the TV screen.</span>
+              </div>
+
+              <div class="settings-row">
+                <label for="setting-tv-completed-limit">Completed Orders Limit</label>
+                <select id="setting-tv-completed-limit" class="input">
+                  <option value="5">Last 5 Orders</option>
+                  <option value="10">Last 10 Orders (Default)</option>
+                  <option value="15">Last 15 Orders</option>
+                  <option value="20">Last 20 Orders</option>
+                </select>
+                <span class="settings-row-desc">Maximum number of recent completed tokens to retain in the third column.</span>
+              </div>
+            </div>
+
+            <div class="toggle-switch-wrapper">
+              <div>
+                <label style="font-size: 13px; font-weight: 600; color: var(--text-heading);">Display Live Clock &amp; Date</label>
+                <div class="settings-row-desc">Show digital clock and current date in the TV screen header.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-tv-show-clock">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-switch-wrapper">
+              <div>
+                <label style="font-size: 13px; font-weight: 600; color: var(--text-heading);">Show Completed Orders Column</label>
+                <div class="settings-row-desc">Display the third column showing recently collected tokens.</div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-tv-show-completed">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+
+            <div class="toggle-switch-wrapper">
+              <div>
+                <label style="font-size: 13px; font-weight: 600; color: var(--text-heading);">Sound Chime Notification on "Ready"</label>
+                <div class="settings-row-desc">Play an audible chime when an order is moved from Preparing to Ready.</div>
+                <div style="margin-top: 8px; display: flex; align-items: center; gap: 10px;">
+                  <span style="font-size: 11px; color: var(--text-muted);">Audio File: <code>frontend/assets/bell.mp3</code></span>
+                  <button type="button" class="btn btn-secondary btn-sm" id="btn-test-bell" style="padding: 4px 10px; font-size: 12px; display: inline-flex; align-items: center; gap: 6px;">
+                    <svg class="icon-svg icon-svg-xs" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+                    Test Bell Sound
+                  </button>
+                </div>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="setting-sound-notifications">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             4. REVENUE & SALES REPORTING PANEL
+             =================================================================== -->
+        <div class="settings-panel" id="panel-revenue">
+          <div class="settings-card">
+            <div class="settings-card-header">
+              <h3>Shift Sales &amp; Revenue Baseline</h3>
+              <p>Review real-time sales revenue, completed orders count, and baseline reset controls.</p>
+            </div>
+
+            <div class="revenue-card-stats">
+              <div class="revenue-stat-box">
+                <div class="revenue-stat-label">Active Shift Revenue</div>
+                <div class="revenue-stat-value" id="stat-active-revenue">₹0.00</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Since latest baseline reset</div>
+              </div>
+              <div class="revenue-stat-box">
+                <div class="revenue-stat-label">All-Time Total Revenue</div>
+                <div class="revenue-stat-value" id="stat-alltime-revenue">₹0.00</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">Lifetime completed orders</div>
+              </div>
+              <div class="revenue-stat-box">
+                <div class="revenue-stat-label">Total Completed Orders</div>
+                <div class="revenue-stat-value" id="stat-completed-count">0</div>
+                <div style="font-size: 11px; color: var(--text-muted); margin-top: 4px;">All historical transactions</div>
+              </div>
+            </div>
+
+            <div style="background: #fafafa; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 20px;">
+                <div>
+                  <h4 style="font-size: 14px; font-weight: 700; color: var(--text-heading); margin-bottom: 4px;">
+                    Reset Active Revenue Baseline to ₹0
+                  </h4>
+                  <p style="font-size: 12px; color: var(--text-muted); line-height: 1.5; max-width: 600px;">
+                    Use this feature when starting a new shift or cashier changeover. 
+                    <strong>Important:</strong> This strictly resets your current active revenue metric to ₹0.00 without deleting any past orders or historical analytics in SQLite.
+                  </p>
+                  <div style="font-size: 11px; color: #475569; margin-top: 8px;">
+                    Last Reset: <strong id="stat-last-reset-time">Never (Initial State)</strong>
+                  </div>
+                </div>
+
+                <button type="button" class="btn btn-secondary" onclick="openResetRevenueModal()" style="border-color: #cbd5e1; white-space: nowrap;">
+                  <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><path d="M3 2v6h6"/><path d="M21 12A9 9 0 0 0 6 5.3L3 8"/><path d="M21 22v-6h-6"/><path d="M3 12a9 9 0 0 0 15 6.7l3-2.7"/></svg>
+                  Reset Revenue to ₹0
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ===================================================================
+             5. DEVICE MANAGEMENT PANEL
+             =================================================================== -->
+        <div class="settings-panel" id="panel-devices">
+          <!-- 1. Current Workstation Session Card (Visible for ALL roles: Cashier, Kitchen, TV) -->
+          <div class="settings-card" id="current-device-session-card">
+            <div class="settings-card-header" style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3>Current Workstation Session</h3>
+                <p>Role and connectivity details for this specific device.</p>
+              </div>
+              <span class="badge badge-normal" id="session-device-role-badge">CASHIER</span>
+            </div>
+
+            <div style="display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; background: #fafafa; border: 1px solid var(--border-color); border-radius: 8px; padding: 20px;">
+              <div>
+                <div style="font-size: 16px; font-weight: 700; color: var(--text-heading);" id="session-device-name">Loading Workstation...</div>
+                <div style="font-size: 12px; color: var(--text-muted); margin-top: 4px; display: flex; align-items: center; gap: 6px;" id="session-device-status-text">
+                  <span class="device-status-dot online"></span>
+                  <span>Active Session</span>
+                </div>
+              </div>
+
+              <button type="button" class="btn btn-secondary" onclick="quitDeviceSession()" style="border-color: #fca5a5; color: #dc2626; display: flex; align-items: center; gap: 8px; font-weight: 600;">
+                <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+                Quit Device Session
+              </button>
+            </div>
+          </div>
+
+          <!-- 2. Authorized Devices Table (Cashier Only) -->
+          <div class="settings-card" id="devices-table-card">
+            <div class="settings-card-header" style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h3>Authorized Workstations &amp; Screens</h3>
+                <p>Manage connected laptops, Kitchen displays, and generate secure 2-minute pairing codes.</p>
+              </div>
+              <button type="button" class="btn btn-primary" onclick="openGeneratePairingCodeModal()" id="btn-generate-pairing-code">
+                <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></svg>
+                Generate Pairing Code
+              </button>
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="device-table">
+                <thead>
+                  <tr>
+                    <th>Status</th>
+                    <th>Device Name</th>
+                    <th>Role</th>
+                    <th>IP Address</th>
+                    <th>Paired Date</th>
+                    <th>Last Active</th>
+                    <th style="text-align: right;">Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="devices-table-body">
+                  <tr>
+                    <td colspan="7" style="text-align: center; color: var(--text-muted); padding: 30px;">Loading devices...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <!-- =========================================================================
+       MODALS
+       ========================================================================= -->
+
+  <!-- 1. Generate Pairing Code Modal -->
+  <div class="modal-backdrop" id="modal-pairing-code" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>
+          <svg class="icon-svg icon-svg-md" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg>
+          Generate Device Pairing Code
+        </h3>
+        <button class="modal-close-btn" onclick="closePairingCodeModal()">&times;</button>
+      </div>
+      <div class="modal-body" id="pairing-code-step-select">
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">
+          Choose the workstation role for the secondary laptop or display:
+        </p>
+
+        <div class="role-select-grid" style="grid-template-columns: 1fr 1fr;">
+          <div class="role-card active" data-role="KITCHEN" id="code-role-kitchen" onclick="selectCodeRole('KITCHEN')">
+            <div class="role-card-icon">
+              <svg class="icon-svg" viewBox="0 0 24 24"><path d="M6 13.8V4a2 2 0 0 1 4 0v9.8"/><path d="M6 10h4"/><circle cx="12" cy="12" r="10"/></svg>
+            </div>
+            <div class="role-card-title">Kitchen Display</div>
+            <div class="role-card-desc">Preparation queue and order status management screen.</div>
+          </div>
+
+          <div class="role-card" data-role="TV_DISPLAY" id="code-role-tv" onclick="selectCodeRole('TV_DISPLAY')">
+            <div class="role-card-icon">
+              <svg class="icon-svg" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div class="role-card-title">TV Display</div>
+            <div class="role-card-desc">Customer order pickup status board.</div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="requestNewPairingCode()">
+          Generate 6-Digit Code
+        </button>
+      </div>
+
+      <div class="modal-body" id="pairing-code-step-display" style="display: none;">
+        <div class="countdown-box">
+          <span>Code Expires In:</span>
+          <span class="countdown-timer-badge" id="pairing-countdown">02:00</span>
+        </div>
+
+        <div class="pairing-code-display" id="generated-code-display">--- ---</div>
+
+        <div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 6px; padding: 14px; font-size: 12px; color: #475569; line-height: 1.5; margin-bottom: 14px;">
+          <strong>Instructions for Secondary Laptop:</strong>
+          <ol style="margin-top: 6px; padding-left: 18px;">
+            <li>Connect secondary laptop to the same Wi-Fi / local network.</li>
+            <li>Open the website URL on the secondary laptop.</li>
+            <li>Select <strong><span id="target-role-label">Kitchen Display</span></strong> role and enter this 6-digit code.</li>
+          </ol>
+        </div>
+
+        <button type="button" class="btn btn-secondary" style="width: 100%;" onclick="closePairingCodeModal()">
+          Done
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Reset Revenue Confirmation Modal -->
+  <div class="modal-backdrop" id="modal-reset-revenue" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Reset Shift Revenue Baseline</h3>
+        <button class="modal-close-btn" onclick="closeResetRevenueModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="revenue-reset-warning">
+          <svg class="icon-svg icon-svg-md" viewBox="0 0 24 24" style="flex-shrink: 0;"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          <div>
+            <strong>Are you sure you want to reset current shift revenue to ₹0?</strong>
+            <p style="margin-top: 4px;">
+              This establishes a new baseline for the current cashier shift. All historical orders, line items, and analytics remain permanently preserved in the SQLite database.
+            </p>
+          </div>
+        </div>
+
+        <div class="settings-row">
+          <label for="reset-revenue-reason">Reset Reason / Shift Note (Optional)</label>
+          <input type="text" id="reset-revenue-reason" class="input" placeholder="e.g. Morning Shift Handover, End of Day">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeResetRevenueModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="confirmResetRevenue()">Confirm Reset to ₹0</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3. Reset Token Sequence Modal -->
+  <div class="modal-backdrop" id="modal-reset-token" style="display: none;">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Reset Token Sequence Counters</h3>
+        <button class="modal-close-btn" onclick="closeResetTokenModal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px; line-height: 1.5;">
+          Specify the starting numbers for newly generated tokens. Existing orders currently in the kitchen will keep their tokens and will not be overwritten.
+        </p>
+
+        <div class="settings-form-grid">
+          <div class="settings-row">
+            <label for="reset-start-normal">Next Normal Token Number</label>
+            <input type="number" id="reset-start-normal" class="input" value="101" min="1">
+          </div>
+          <div class="settings-row">
+            <label for="reset-start-priority">Next Priority Token Number</label>
+            <input type="number" id="reset-start-priority" class="input" value="101" min="1">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeResetTokenModal()">Cancel</button>
+        <button type="button" class="btn btn-primary" onclick="confirmResetTokenSequence()">Reset Numbers</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/settings.js"></script>
+</body>
+</html>

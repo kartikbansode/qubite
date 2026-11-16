@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Order Display - Cafe Token Management System</title>
+  <link rel="icon" type="image/png" href="assets/q-logo.png">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    body {
+      background-color: #f1f5f9;
+      color: #0f172a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    .tv-wrapper {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Full-Screen Restriction Overlay for Screens < 1024px -->
+  <div id="screen-warning-overlay">
+    <div class="screen-warning-card">
+      <div class="screen-warning-icon">
+        <svg class="icon-svg icon-svg-xl" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      </div>
+      <h2>Screen Size Not Supported</h2>
+      <p>This application is designed for larger screens. Please open Cafe Token Management System on a laptop or desktop with a screen width of at least 1024 pixels.</p>
+    </div>
+  </div>
+
+  <!-- Customer-Facing TV Display (Professional Light Mode) -->
+  <div class="tv-wrapper">
+    <!-- Header Section -->
+    <header class="tv-header">
+      <div class="tv-logo-box">
+        <img src="assets/logo.png" alt="Cafeteria Logo" class="tv-logo-img"
+             onload="this.style.display='block'; document.getElementById('tv-brand-fallback').style.display='none';"
+             onerror="this.style.display='none'; document.getElementById('tv-brand-fallback').style.display='flex';">
+        <div id="tv-brand-fallback" class="brand-fallback" style="display: flex;">
+          <div class="brand-icon-box" style="width: 44px; height: 44px;">
+            <svg class="icon-svg icon-svg-lg" viewBox="0 0 24 24"><path d="M18 8h1a4 4 0 0 1 0 8h-1"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+          </div>
+          <div class="brand-info">
+            <h1 class="tv-brand-title">Cafe Token Management</h1>
+            <p style="color: #64748b; font-size: 11px; letter-spacing: 0.5px;">Order Status Board</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tv-header-center">
+        <span class="tv-status-badge">Order Status</span>
+      </div>
+
+      <div class="tv-time-box" style="display: flex; align-items: center; gap: 16px;">
+        <div style="text-align: right;">
+          <div class="tv-clock" id="tv-live-clock">--:--:--</div>
+          <div class="tv-date" id="tv-live-date">--</div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 8px;">
+          <button id="btn-audio-toggle" class="btn btn-secondary btn-sm" onclick="toggleTvAudio()" title="Sound Alert Notification" style="display: flex; align-items: center; gap: 6px; padding: 7px 12px; font-weight: 600;">
+            <svg class="icon-svg icon-svg-sm" id="icon-audio-on" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg>
+            <svg class="icon-svg icon-svg-sm" id="icon-audio-off" viewBox="0 0 24 24" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+            <span id="text-audio-state">Bell Alert</span>
+          </button>
+          <a href="settings.html" class="btn btn-secondary btn-sm" title="Settings" aria-label="Settings" style="display: flex; align-items: center; gap: 6px; padding: 7px 12px; font-weight: 600; text-decoration: none;">
+            <svg class="icon-svg icon-svg-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </a>
+          <button id="btn-fullscreen" class="btn btn-secondary btn-sm btn-icon" onclick="toggleFullScreen()" title="Toggle Fullscreen" aria-label="Toggle Fullscreen">
+            <svg class="icon-svg icon-svg-sm" id="icon-fullscreen-enter" viewBox="0 0 24 24"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+            <svg class="icon-svg icon-svg-sm" id="icon-fullscreen-exit" viewBox="0 0 24 24" style="display:none;"><path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3"/></svg>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content: 3 Large Status Columns -->
+    <main class="tv-grid">
+      <!-- 1. NOW PREPARING -->
+      <section class="tv-column">
+        <div class="tv-column-header preparing">
+          <div style="display: flex; align-items: center; gap: 10px;">
+
+            <h3>Preparing</h3>
+          </div>
+          <span class="badge badge-preparing" id="tv-count-preparing">0</span>
+        </div>
+        <div class="tv-cards-list" id="tv-preparing-list">
+          <div class="tv-empty-box">No orders preparing</div>
+        </div>
+      </section>
+
+      <!-- 2. READY FOR COLLECTION -->
+      <section class="tv-column">
+        <div class="tv-column-header ready">
+          <div style="display: flex; align-items: center; gap: 10px;">
+
+            <h3>Ready for Collection</h3>
+          </div>
+          <span class="badge badge-ready" id="tv-count-ready">0</span>
+        </div>
+        <div class="tv-cards-list" id="tv-ready-list">
+          <div class="tv-empty-box">No orders ready</div>
+        </div>
+      </section>
+
+      <!-- 3. COMPLETED -->
+      <section class="tv-column" id="tv-completed-column">
+        <div class="tv-column-header completed">
+          <div style="display: flex; align-items: center; gap: 10px;">
+  
+            <h3>Completed</h3>
+          </div>
+          <span class="badge badge-completed" id="tv-count-completed">0</span>
+        </div>
+        <div class="tv-cards-list" id="tv-completed-list">
+          <div class="tv-empty-box">No completed orders</div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Clean Footer -->
+    <footer class="tv-footer">
+      <div>
+        <span style="font-weight: 600;">Live Order Status</span>
+      </div>
+      <div>
+        <span>Updated: </span>
+        <strong id="tv-last-updated" style="color: #0f172a;">--:--:--</strong>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/api.js"></script>
+  <script src="js/display.js"></script>
+</body>
+</html>

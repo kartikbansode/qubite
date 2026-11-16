@@ -1,0 +1,4 @@
+D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/CafeServer.dir
+D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/test_structures.dir
+D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/edit_cache.dir
+D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/rebuild_cache.dir
