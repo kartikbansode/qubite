@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "D:/kartik/Projects/Cafe Token Management/tests/test_structures.cpp" "CMakeFiles/test_structures.dir/tests/test_structures.cpp.obj" "gcc" "CMakeFiles/test_structures.dir/tests/test_structures.cpp.obj.d"
+  "D:/projects/QUBITE/tests/test_structures.cpp" "CMakeFiles/test_structures.dir/tests/test_structures.cpp.obj" "gcc" "CMakeFiles/test_structures.dir/tests/test_structures.cpp.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

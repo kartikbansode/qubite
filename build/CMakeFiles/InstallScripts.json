@@ -1,7 +1,7 @@
 {
 	"InstallScripts" : 
 	[
-		"D:/kartik/Projects/Cafe Token Management/build/cmake_install.cmake"
+		"D:/projects/QUBITE/build/cmake_install.cmake"
 	],
 	"Parallel" : false
 }

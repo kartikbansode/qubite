@@ -1,0 +1,84 @@
+
+# ============================================================================
+# QUBITE - Git Ignore Configuration
+# ============================================================================
+
+# Build directories and generated binaries
+build/
+cmake-build-*/
+out/
+bin/
+obj/
+*.exe
+*.dll
+*.so
+*.a
+*.lib
+*.o
+*.obj
+*.pdb
+*.ilk
+*.exp
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+Testing/
+
+# MinGW / GCC artifacts
+*.gcda
+*.gcno
+*.gcov
+
+# Visual Studio / IDE files
+.vs/
+.vscode/
+.idea/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.code-workspace
+
+# SQLite database files
+data/*.db
+data/*.db-journal
+data/*.db-shm
+data/*.db-wal
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+*.tmp
+*.bak
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Environment and local configuration
+.env
+.env.*
+!.env.example
+config.local.json
+settings.local.json
+
+# Test and coverage output
+coverage/
+*.profraw
+*.profdata
+
+# Package manager and dependency caches
+.cache/
+.npm/
+node_modules/
+
+# OS-specific files
+$RECYCLE.BIN/

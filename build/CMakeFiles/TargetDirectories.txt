@@ -1,4 +1,4 @@
-D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/CafeServer.dir
-D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/test_structures.dir
-D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/edit_cache.dir
-D:/kartik/Projects/Cafe Token Management/build/CMakeFiles/rebuild_cache.dir
+D:/projects/QUBITE/build/CMakeFiles/CafeServer.dir
+D:/projects/QUBITE/build/CMakeFiles/test_structures.dir
+D:/projects/QUBITE/build/CMakeFiles/edit_cache.dir
+D:/projects/QUBITE/build/CMakeFiles/rebuild_cache.dir
